@@ -15,23 +15,23 @@ jobs:
       with:
         manager-host: api-manager.us-east-a.apiconnect.automation.ibm.com
         api-host: platform-api.us-east-a.apiconnect.automation.ibm.com
-        provider-org: 'demo'
+        provider-org: 'Sandbox Test Organization'
         catalog: 'sandbox'
-        apikey: ${{ secrets.apikey }}
+        apikey: ${{ secrets.APIKEY }}
         product-file: 'product.yaml'
         migrate_subscriptions: 'true'
 
     - name: Test API in Sandbox
       shell: python
-      if: ${{ github.repository_owner == 'ibm-apiconnect' }}
+      if: ${{ github.repository_owner == 'sasirmm6' }}
       run: |
         import requests
         webhook_url='https://hub.us-east-a.apiconnect.automation.ibm.com/apitest/api/rest/v1/b489c5cb-5787-4910-ba55-0feb4b83acd15'
         r = requests.post(
             url="{}/tests/run".format(webhook_url),
             headers={
-              "X-API-Key":"${{ secrets.api_test_key}}",
-              "X-API-Secret":"${{ secrets.api_test_secret}}",
+              "X-API-Key":"4716330d2405138c9c001ba9098f469f",
+              "X-API-Secret":"B4A6cL7V7R5xUkkem+zU6G2nuWKdzTZ4UI1JxHrO4pE=",
               "Content-Type":"application/json"
             },
             data='{"options": { "allAssertions": true,"JUnitFormat": false}}'
