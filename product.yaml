@@ -1,34 +1,31 @@
 info:
+  title: Sasi
+  name: sasi
   version: 1.0.0
-  title: Ordering and Fulfillment
-  name: ordering-and-fulfillment
+apis:
+  mappingcomponents1.0.0:
+    name: mappingcomponents:1.0.0
 gateways:
   - datapower-api-gateway
 plans:
   default-plan:
     title: Default Plan
     description: Default Plan
+    approval: false
     rate-limits:
       default:
         value: 100/1hour
     apis:
-      order1.0.0: {}
-      stock1.0.0: {}
-apis:
-  order1.0.0:
-    $ref: api/orders_api.yaml
-  stock1.0.0:
-    $ref: api/stock.yaml
+      mappingcomponents1.0.0: {}
+product: 1.0.0
 visibility:
   view:
+    enabled: true
     type: public
-    orgs: []
     tags: []
-    enabled: true
+    orgs: []
   subscribe:
-    type: authenticated
-    orgs: []
-    tags: []
     enabled: true
-product: 1.0.0
-
+    type: authenticated
+    tags: []
+    orgs: []
